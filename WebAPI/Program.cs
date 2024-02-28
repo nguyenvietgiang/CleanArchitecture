@@ -3,6 +3,7 @@ using Application;
 using Infrastructure.DapperSetting;
 using Infrastructure.Services;
 using Infrastructure.Repository;
+using WebAPI.Endpoints.TodoListEndpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -27,15 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Define API
-app.MapGet("/api/todolists", async (ITodoListService todoListService) =>
-{
-    var todoLists = await todoListService.GetAllTodoListsAsync();
-    return Results.Ok(todoLists);
-});
-
-
 app.UseHttpsRedirection();
 
+app.MapTodoListEndpointsWithLambda();
 app.Run();
 

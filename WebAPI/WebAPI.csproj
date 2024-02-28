@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Presentation\Presentation.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoint\" />
-  </ItemGroup>
-
 </Project>
